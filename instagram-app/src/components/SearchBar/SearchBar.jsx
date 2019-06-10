@@ -4,7 +4,13 @@ import './SearchBar.css'
 const SearchBar = props => {
     return (
         <div className='searchBar'>
-            SearchBar
+            <div className='iconthing'>
+                <img src=' https://besticon-demo.herokuapp.com/icon?url=instagram.com&size=80..120..200' alt='LOL'/>
+            </div>
+            Instagram
+            <div>
+            <input type='text' defaultValue='Search' />
+            </div>  
         </div>
     )
 }

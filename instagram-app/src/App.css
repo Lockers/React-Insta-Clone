@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: yellow;
     margin: 0 auto;
+    border: 1px black solid;
+}
+p{
+    margin: 5px;
+    padding: 5px;
 }
