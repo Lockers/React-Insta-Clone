@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import dummyData from './dummy-data'
+import SearchBar from './components/SearchBar/SearchBar'
+import PostContainer from './components/PostContainer/PostContainer'
 import './App.css';
 
 class App extends Component {
@@ -11,8 +13,9 @@ class App extends Component {
   render() {
     console.log(dummyData)
     return (
-      <div className="App">
-        Hello World
+      <div className="AppContainer">
+        <SearchBar />
+        <PostContainer />
     </div>
     );
   }

@@ -1,0 +1,6 @@
+.searchBar{
+    display: flex;
+    background: red;
+    width: 100%;
+    border: 1px black solid
+}
