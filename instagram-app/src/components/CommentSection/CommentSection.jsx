@@ -2,24 +2,36 @@ import React from 'react'
 import './CommentSection.css'
 
 const CommentSection = props => {
-    return (
-        <div className='commentBox'>
-            <p className='names'><img src='./logo-via-logohub.png' alt='nope' />{props.data.username}</p>
-            <div className='images'>
-                <img src={props.data.imageUrl} alt='Lovecock' />
-            </div>
-            
-                {props.data.comments.map(comment => {
-                return (
-                    <div className='comments'>
-                        <p className='names'>{comment.username}: </p>
-                        <p>{comment.text}</p>
-                    </div>
+  
+        return (
+            <div className='commentBox'>
+                {props.comments.map((comment, index) => {
+                    return (
+                        <div key={index} className='comments'>
+                            <p className='names'>{comment.username}: </p>
+                            <p>{comment.text}</p>
+                        </div>
                     )
-            })}
-            <span><input type='text' defaultValue='Add Comment' /><button>Add</button></span>
-        </div>
-    )
-}
+                })}
+                <form onSubmit={(event, ) => props.addComment} >
+                    <input
+                        type='text'
+                        name='title'
+                        style={{ flex: '10', padding: '5px' }}
+                        placeholder='Add Comment'
+                        value={props.commentName}
+                        onChange={props.changeHandler}
+                    />
+                    <input
+                        type='submit'
+                        value='Submit'
+                        className='btn'
+                    
+                    />
 
-export default CommentSection
+                </form>
+                <button onClick={props.addLikes}>Add ME</button>
+            </div>
+        )
+    }
+ export default CommentSection
