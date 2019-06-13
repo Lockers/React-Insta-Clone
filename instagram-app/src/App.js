@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
-import dummyData from './components/dummy-data'
-import { PostContainer } from './components/PostContainer/PostContainer'
+import dummyData from './components/dummy-data';
+import { Login } from '../src/components/Login/Login';
+import { PostContainer } from './components/PostContainer/PostContainer';
+import withAuthenticate from './Authentication/withAuthenticate';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      dummyData: []
+      dummyData: [],
     }
+
   }
-    
-  componentDidMount() {
+    componentDidMount() {
     this.setState({ dummyData })
   }
   
 render() { 
     
-    return (
-      <div className="AppContainer">
-        {
-          this.state.dummyData.map((data, index) => {
-            return <PostContainer data={data} key={index} likes={data} />
-          })
-        }
-      </div>
+  return (
+    <div>
+
+      {
+        this.props.isAuthed === false &&
+        <Login login={this.props.login} />
+      }
+      {
+          this.props.isAuthed === true &&
+        <PostContainer dummyData={this.state.dummyData} logout={this.props.logout} />
+      }
+    </div >
     );
+  
   }
 }
 
-
-export default App;
+export default withAuthenticate(App);
