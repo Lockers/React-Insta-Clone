@@ -3,7 +3,17 @@ import dummyData from './components/dummy-data';
 import { Login } from '../src/components/Login/Login';
 import { PostContainer } from './components/PostContainer/PostContainer';
 import withAuthenticate from './Authentication/withAuthenticate';
-import './App.css';
+import styled from 'styled-components'
+
+export const Div = styled.div`
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto 0;
+  max-width: 800px;
+`
+
 
 class App extends Component {
   constructor() {
@@ -20,7 +30,7 @@ class App extends Component {
 render() { 
     
   return (
-    <div>
+    <Div>
 
       {
         this.props.isAuthed === false &&
@@ -30,7 +40,7 @@ render() {
           this.props.isAuthed === true &&
         <PostContainer dummyData={this.state.dummyData} logout={this.props.logout} />
       }
-    </div >
+    </Div>
     );
   
   }

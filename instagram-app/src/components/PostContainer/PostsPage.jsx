@@ -1,6 +1,20 @@
 import React from 'react'
 import { CommentSection } from '../CommentSection/CommentSection'
-import './PostContainer.css'
+import styled from 'styled-components'
+
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+
+`
+
+const Img = styled.img`
+    flex-direction: row;
+    width: 25px;
+    height: 25px;  
+`
 
 export class PostsPage extends React.Component {
     constructor(props) {
@@ -35,11 +49,12 @@ export class PostsPage extends React.Component {
 
     render() {
         return (
-            <div className='postContainer'>
-                <img src={this.props.data.thumbnailUrl} alt='suckme' />
-                {this.props.data.username}
+            <Div>
+                <p><Img src={this.props.data.thumbnailUrl} alt='suckme' /> {this.props.data.username} </p>
+                
+
                 <img src={this.props.data.imageUrl} alt='nope' />
-                <button onClick={this.addLikes}><img src='' alt={this.state.likes} /></button>
+                <button label='Likes' onClick={this.addLikes}><img src="" alt={this.state.likes} /></button>
                 
                 {
                     this.state.comments.map((comment, index) => <CommentSection comments={comment.text} username={comment.username} key={index} />)
@@ -60,7 +75,7 @@ export class PostsPage extends React.Component {
                     </form>
                     <button onClick={this.props.logout}>Logout</button>
                 </div>
-            </div>
+            </Div>
         )
     }
 

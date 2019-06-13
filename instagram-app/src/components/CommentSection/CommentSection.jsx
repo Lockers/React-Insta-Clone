@@ -1,10 +1,14 @@
 import React from 'react'
-import './CommentSection.css'
+import styled from 'styled-components'
+
+const P = styled.p`
+    font-weight: bolder;
+`
 
 export const CommentSection = (props) => {
     return (
         <div className='commentSection'>
-            <p>{props.username}</p>
+            <P>{props.username}</P>
             <p>{props.comments}</p>
         </div>
         )
